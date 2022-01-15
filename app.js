@@ -12,8 +12,8 @@ app.use(express.urlencoded({
 }))
 app.use(method_override('_method'))
 
-const uri = require('./router/uri')
-app.use('/', uri)
+const url = require('./router/url')
+app.use('/', url)
 
 const port = process.env.PORT || 3000
 const start = async() => {

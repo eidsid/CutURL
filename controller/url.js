@@ -17,7 +17,7 @@ const getALL = async(req, res) => {
 const addONE = async(req, res) => {
 
     const url = {
-        fullURl: req.body.fullURl
+        fullURL: req.body.fullURL
     }
     try {
         await DBurls.create(url)
