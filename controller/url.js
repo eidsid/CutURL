@@ -1,63 +1,65 @@
-const DBurls = require('../models/url')
+const DBurls = require("../models/url");
 const getALL = async(req, res) => {
-
     try {
-        const urls = await DBurls.find({})
+        const urls = await DBurls.find({});
         if (urls) {
-            res.send({
-                urls: urls
+            res.render("index", {
+                urls: urls,
+                host: process.env.HOST || 'http://localhost:9000/'
             });
         } else {
-            res.send('index', 'no Thing here')
+            res.send("index", "no Thing here");
         }
     } catch (error) {
-        res.status(500).send('index', error.message)
+        res.status(500).send("index", error.message);
     }
-}
+};
 const addONE = async(req, res) => {
-
     const url = {
-        fullURL: req.body.fullURL
-    }
+        fullURL: req.body.fullURL,
+    };
     try {
-        await DBurls.create(url)
-        res.send('add Success')
-
+        await DBurls.create(url);
+        res.redirect("/");
     } catch (error) {
-        res.status(500).send(error.message)
+        res.status(500).send(error.message);
     }
-}
+};
 const deleteONE = async(req, res) => {
-
     try {
-        const id = req.params.id
+        const id = req.params.id;
         const url = await DBurls.findOneAndDelete({
-            _id: id
-        })
+            _id: id,
+        });
         if (!url) {
-            res.status(404).send("url not exst")
+            res.status(404).send("url not exst");
         }
-        res.status(200).send('Delete success')
-
+        res.redirect("/");
     } catch (error) {
-        res.status(500).send(error.message)
+        res.status(500).send(error.message);
     }
-}
+};
 const getOne = async(req, res) => {
-    const id = req.params.id
+    const shortURL = req.params.shortURL;
+
+
     try {
-        const url = await DBurls.findById({
-            _id: id
+        const url = await DBurls.findOne({
+            shortURL: shortURL
         })
-        res.send(url)
+        const clicks = url.clicks + 1
+        await DBurls.findByIdAndUpdate(url.id, {
+            clicks: clicks
+        })
+        res.redirect(url.fullURL)
     } catch (error) {
-        res.send('there are no url with this id')
+        res.send("there are no url with this shortURL");
     }
-}
+};
 
 module.exports = {
     getALL,
     addONE,
     deleteONE,
-    getOne
-}
+    getOne,
+};
