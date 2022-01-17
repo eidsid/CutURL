@@ -86,4 +86,47 @@ table th {
   border-bottom: #535388 1px solid;
   padding: 1rem;
 }
+
+table .shortcol {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 1rem;
+}
+
+table .shortcol a {
+  text-decoration: none;
+  font-family: sans-serif;
+  font-weight: bolder;
+  border-bottom: 1px solid black;
+  padding: 0.1rem;
+}
+
+table .shortcol .clicks {
+  border: blue 1px solid;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 1rem;
+  background-color: black;
+  color: white;
+  border-radius: 0.4rem;
+}
+
+table .shortcol .clicks span {
+  background-color: blue;
+  padding: 0.4rem;
+  color: white;
+  border-radius: 0.4rem;
+}
 /*# sourceMappingURL=style.css.map */
