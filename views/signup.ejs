@@ -1,0 +1,28 @@
+<%- include('./components/Header.ejs') %>
+    <div class="Formcontainer">
+        <form action="/login/register" method="POST" class="flex">
+            <h2>Signup</h2>
+            <div class="flex">
+                <div class="form-control">
+                    <label for="firstname">First Name </label>
+                    <input type="text" id="firstname" name="firstName">
+                </div>
+                <div class="form-control">
+                    <label for="lastname">Last Name </label>
+                    <input type="text" id="lastname" name="lastName">
+                </div>
+            </div>
+            <div class="form-control">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email">
+            </div>
+            <div class="form-control">
+                <label for="password">password</label>
+                <input type="password" name="password" id="password">
+            </div>
+            <button>SignUp</button>
+        </form>
+        <a href="/login">Login</a>
+    </div>
+
+    <%- include('./components/Footer.ejs') %>

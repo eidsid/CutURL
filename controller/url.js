@@ -1,5 +1,6 @@
 const DBurls = require("../models/url");
 const getALL = async (req, res) => {
+  console.log("GET all url");
   try {
     const urls = await DBurls.find({});
     if (urls) {
