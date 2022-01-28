@@ -3,6 +3,42 @@ body {
   font-family: sans-serif;
 }
 
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.header {
+  width: 100vw;
+  background-color: black;
+  color: white;
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-weight: bolder;
+  margin-bottom: 2rem;
+}
+
+.header .logo {
+  font-size: 2rem;
+}
+
+.header button {
+  border: none;
+  background-color: #53d82a;
+  padding: 0.7rem 1.4rem;
+  border-radius: 1rem;
+  font-weight: inherit;
+  color: #03220c;
+  font-size: 1.3rem;
+}
+
 .cut {
   display: -webkit-box;
   display: -ms-flexbox;

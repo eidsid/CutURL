@@ -1,57 +1,65 @@
 <%- include('./components/Header.ejs') %>
 
+    <%- include('./components/errors.ejs') %>
+        <form action="/" method="post" class="cut">
+            <input type="text" name="fullURL" placeholder="add your url">
+            <button type="submit">CutURL</button>
+        </form>
 
-    <form action="/" method="post" class="cut">
-        <input type="text" name="fullURL" placeholder="add your url">
-        <button type="submit">CutURL</button>
-    </form>
+        <%if(urls.length>0){%>
+            <h1 class="title"> here your all URlS</h1>
 
+            <table>
 
-    <h1 class="title"> here your all URlS</h1>
+                <thead>
+                    <tr>
+                        <th>the orginal URl</th>
+                        <th>the Short URl</th>
+                        <th>Actions</th>
 
-    <table>
+                    </tr>
+                </thead>
+                <tbody>
 
-        <thead>
-            <tr>
-                <th>the orginal URl</th>
-                <th>the Short URl</th>
-                <th>Actions</th>
-
-            </tr>
-        </thead>
-        <tbody>
-            <% urls.forEach(url => {%>
-
-
-                <tr>
-                    <td>
-                        <%= url.fullURL %>
-                    </td>
-                    <td class="shortcol">
-                        <a href="<%=host + url.shortURL  %> " target="_blank">
-                            <%= url.shortURL %>
-                        </a>
-                        <p class="clicks">cliks:
-                            <span> <%=url.clicks %></span>
-                        </p>
-                    </td>
-                    <td>
-                        <form action="/<%=url.id%>?_method=DELETE" method="POST">
-                            <button class="btn" type="submit">Delete</button>
-                        </form>
-                    </td>
-
-                </tr>
-
-                <% });%>
-        </tbody>
+                    <% urls.forEach(url => {%>
 
 
-    </table>
+                        <tr>
+                            <td>
+                                <%= url.fullURL %>
+                            </td>
+                            <td class="shortcol">
+                                <a href="<%=host + url.shortURL  %> " target="_blank">
+                                    <%= url.shortURL %>
+                                </a>
+                                <p class="clicks">cliks:
+                                    <span> <%=url.clicks %></span>
+                                </p>
+                            </td>
+                            <td>
+                                <form action="/<%=url.id%>?_method=DELETE" method="POST">
+                                    <button class="btn" type="submit">Delete</button>
+                                </form>
+                            </td>
+
+                        </tr>
+
+                        <% });%>
+
+                </tbody>
+
+
+            </table>
+            <%}%>
+
+                <%if(urls.length<=0){%>
+                    <div class="introSection">
+                        <h1>Welcome </h1>
+                    </div>
+                    <%}%>
 
 
 
 
 
-
-    <%- include('./components/Footer.ejs') %>
+                        <%- include('./components/Footer.ejs') %>

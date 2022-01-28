@@ -3,6 +3,35 @@ body {
     font-family: sans-serif;
 }
 
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.header {
+    width: 100vw;
+    background-color: black;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bolder;
+    margin-bottom: 2rem;
+    .logo {
+        font-size: 2rem;
+    }
+    button {
+        border: none;
+        background-color: rgb(83, 216, 42);
+        padding: 0.7rem 1.4rem;
+        border-radius: 1rem;
+        font-weight: inherit;
+        color: rgb(3, 34, 12);
+        font-size: 1.3rem;
+    }
+}
+
 .cut {
     display: flex;
     border: 1px solid rgba(126, 126, 126, 0.65);

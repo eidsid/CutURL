@@ -1,28 +1,41 @@
-<%- include('./components/Header.ejs') %>
-    <div class="Formcontainer">
-        <form action="/login/register" method="POST" class="flex">
-            <h2>Signup</h2>
-            <div class="flex">
-                <div class="form-control">
-                    <label for="firstname">First Name </label>
-                    <input type="text" id="firstname" name="firstName">
-                </div>
-                <div class="form-control">
-                    <label for="lastname">Last Name </label>
-                    <input type="text" id="lastname" name="lastName">
-                </div>
-            </div>
-            <div class="form-control">
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email">
-            </div>
-            <div class="form-control">
-                <label for="password">password</label>
-                <input type="password" name="password" id="password">
-            </div>
-            <button>SignUp</button>
-        </form>
-        <a href="/login">Login</a>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
 
-    <%- include('./components/Footer.ejs') %>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in</title>
+</head>
+
+<body>
+    <div class="Formcontainer">
+
+        <form action="/users/register" method="POST" class="flex">
+            <h2>Signup</h2>
+            <%- include('./components/errors.ejs')%>
+                <div class="flex">
+                    <div class="form-control">
+                        <label for="firstname">First Name </label>
+                        <input type="text" id="firstname" name="firstName">
+                    </div>
+                    <div class="form-control">
+                        <label for="lastname">Last Name </label>
+                        <input type="text" id="lastname" name="lastName">
+                    </div>
+                </div>
+                <div class="form-control">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email">
+                </div>
+                <div class="form-control">
+                    <label for="password">password</label>
+                    <input type="password" name="password" id="password">
+                </div>
+                <button>SignUp</button>
+        </form>
+        <a href="/users/login">Login</a>
+    </div>
+</body>
+
+</html>

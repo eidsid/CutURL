@@ -1,0 +1,13 @@
+<div class="user_state">
+    <% if(locals.user){ %>
+        <h1>hello <%=user.name%></h1>
+        <form action="/users/logout" method="get">
+            <button class="btn btn-danger">log OUt</button>
+        </form>
+        <%}%>
+            <%  if(!locals.user){%>
+                <form action="/users/login" method="get">
+                    <button class="btn btn-login">Login</button>
+                </form>
+                <%}%>
+</div>
