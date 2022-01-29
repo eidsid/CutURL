@@ -129,3 +129,74 @@ table {
         }
     }
 }
+
+.pricing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+    .col {
+        padding: 1rem;
+        min-width: 300px;
+        max-width: 350px;
+        min-height: 590px;
+        line-height: 2rem;
+        border: 1px solid rgb(200, 200, 200);
+        p {
+            width: 100%;
+            color: rgba(0, 0, 0, 0.609);
+            span {
+                float: right;
+                color: black;
+            }
+        }
+        &:hover {
+            transition: 0.4s ease-in-out all;
+            border-color: black;
+            box-shadow: black 0px 0px 10px;
+        }
+        .card-footer {
+            text-align: center;
+            font-weight: bolder;
+            font-size: 1.5rem;
+            p {
+                color: rgb(1, 163, 77);
+            }
+            button {
+                background-color: rgb(19, 202, 105);
+                color: white;
+                border: none;
+                border-radius: 1rem;
+                padding: 0.7rem 1rem;
+                cursor: pointer;
+            }
+        }
+        &:nth-child(2) {
+            .card-footer {
+                p {
+                    color: #0e6df6;
+                }
+                button {
+                    background-color: #0e6df6;
+                }
+            }
+        }
+        &:nth-child(3) {
+            .card-footer {
+                p {
+                    color: tomato;
+                }
+                button {
+                    background-color: tomato;
+                }
+            }
+        }
+    }
+}
+
+h1.notlogin {
+    text-align: center;
+    margin: 2rem;
+}

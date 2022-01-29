@@ -165,4 +165,87 @@ table .shortcol .clicks span {
   color: white;
   border-radius: 0.4rem;
 }
+
+.pricing {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.pricing .col {
+  padding: 1rem;
+  min-width: 300px;
+  max-width: 350px;
+  min-height: 590px;
+  line-height: 2rem;
+  border: 1px solid #c8c8c8;
+}
+
+.pricing .col p {
+  width: 100%;
+  color: rgba(0, 0, 0, 0.609);
+}
+
+.pricing .col p span {
+  float: right;
+  color: black;
+}
+
+.pricing .col:hover {
+  -webkit-transition: 0.4s ease-in-out all;
+  transition: 0.4s ease-in-out all;
+  border-color: black;
+  -webkit-box-shadow: black 0px 0px 10px;
+          box-shadow: black 0px 0px 10px;
+}
+
+.pricing .col .card-footer {
+  text-align: center;
+  font-weight: bolder;
+  font-size: 1.5rem;
+}
+
+.pricing .col .card-footer p {
+  color: #01a34d;
+}
+
+.pricing .col .card-footer button {
+  background-color: #13ca69;
+  color: white;
+  border: none;
+  border-radius: 1rem;
+  padding: 0.7rem 1rem;
+  cursor: pointer;
+}
+
+.pricing .col:nth-child(2) .card-footer p {
+  color: #0e6df6;
+}
+
+.pricing .col:nth-child(2) .card-footer button {
+  background-color: #0e6df6;
+}
+
+.pricing .col:nth-child(3) .card-footer p {
+  color: tomato;
+}
+
+.pricing .col:nth-child(3) .card-footer button {
+  background-color: tomato;
+}
+
+h1.notlogin {
+  text-align: center;
+  margin: 2rem;
+}
 /*# sourceMappingURL=style.css.map */
