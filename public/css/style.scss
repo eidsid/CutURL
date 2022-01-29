@@ -1,6 +1,7 @@
 body {
     background-color: #eff1f1;
     font-family: sans-serif;
+    overflow-x: hidden;
 }
 
 * {
@@ -10,7 +11,7 @@ body {
 }
 
 .header {
-    width: 100vw;
+    width: 100%;
     background-color: black;
     color: white;
     padding: 1rem;
@@ -29,6 +30,12 @@ body {
         font-weight: inherit;
         color: rgb(3, 34, 12);
         font-size: 1.3rem;
+    }
+    .user_state {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        padding-left: 1rem;
     }
 }
 
@@ -199,4 +206,15 @@ table {
 h1.notlogin {
     text-align: center;
     margin: 2rem;
+}
+
+@media (max-width:700px) {
+    .header {
+        align-items: center;
+        .logo,
+        h1 {
+            font-size: 1rem !important;
+            padding: 1rem 0;
+        }
+    }
 }
