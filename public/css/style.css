@@ -4,6 +4,10 @@ body {
   overflow-x: hidden;
 }
 
+html, body {
+  scroll-behavior: smooth;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -23,7 +27,6 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
   font-weight: bolder;
-  margin-bottom: 2rem;
 }
 
 .header .logo {
@@ -52,7 +55,7 @@ body {
   padding: 1rem;
   border-radius: 1rem;
   background-color: white;
-  margin: 0 auto;
+  margin: 2rem auto;
 }
 
 .cut > * {
@@ -251,6 +254,97 @@ h1.notlogin {
   margin: 2rem;
 }
 
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 1rem;
+}
+
+.intro {
+  background-color: #1737cf;
+  color: white;
+  padding: 3rem 1rem 0 1rem;
+  line-height: 3rem;
+}
+
+.intro .flex {
+  gap: 10%;
+}
+
+.intro .col {
+  max-width: 700px;
+}
+
+.intro .col .title {
+  opacity: 0.8;
+  color: #e9f7ff;
+}
+
+.intro .col h1 {
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.intro .col p {
+  color: #e7e7e7;
+}
+
+.intro .col .btns {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.intro .col .btns .btn {
+  text-decoration: none;
+  padding: 0 2rem;
+  border-radius: 1rem;
+  -webkit-transition: .5s ease-in-out all;
+  transition: .5s ease-in-out all;
+  border: 1px solid lightgreen;
+}
+
+.intro .col .btns .btn:nth-child(1) {
+  background-color: #18f318;
+  color: #1737cf;
+}
+
+.intro .col .btns .btn:nth-child(2) {
+  color: lightgreen;
+}
+
+.intro .col .btns .btn:hover:nth-child(1) {
+  background-color: #1737cf;
+  color: #18f318;
+}
+
+.intro .col .btns .btn:hover:nth-child(2) {
+  background-color: #18f318;
+  color: #1737cf;
+}
+
+.intro .copy {
+  text-align: center;
+  margin-top: 3rem;
+}
+
 @media (max-width: 700px) {
   .header {
     -webkit-box-align: center;
@@ -264,6 +358,12 @@ h1.notlogin {
   }
   .cut {
     width: 100%;
+  }
+  .flex {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 }
 /*# sourceMappingURL=style.css.map */
