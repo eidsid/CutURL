@@ -1,352 +1,363 @@
 body {
-  background-color: #eff1f1;
-  font-family: sans-serif;
-  overflow-x: hidden;
-
+    background-color: #eff1f1;
+    font-family: sans-serif;
+    overflow-x: hidden;
 }
-html,body{
+
+html,
+body {
     scroll-behavior: smooth;
 }
+
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
-a{
- text-decoration: none;
+
+a {
+    text-decoration: none;
 }
 
 .header {
-  width: 100%;
-  background-color: black;
-  color: white;
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
-  font-weight: bolder;
-
-  .logo {
-    font-size: 2rem;
-  }
-  button {
-    border: none;
-    background-color: rgb(83, 216, 42);
-    padding: 0.7rem 1.4rem;
-    border-radius: 1rem;
-    font-weight: inherit;
-    color: rgb(3, 34, 12);
-    font-size: 1.3rem;
-    cursor: pointer;
-  }
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bolder;
+    .logo {
+        font-size: 2rem;
+    }
+    button {
+        border: none;
+        background-color: rgb(83, 216, 42);
+        padding: 0.7rem 1.4rem;
+        border-radius: 1rem;
+        font-weight: inherit;
+        color: rgb(3, 34, 12);
+        font-size: 1.3rem;
+        cursor: pointer;
+    }
 }
 
 .cut {
-  display: flex;
-  border: 1px solid rgba(126, 126, 126, 0.65);
-  width: fit-content;
-  padding: 1rem;
-  border-radius: 1rem;
-  background-color: white;
-  margin: 2rem auto;
-  > * {
-    border: none;
-    background-color: none !important;
-    outline: none;
-  }
-  input {
-    padding: 1rem;
-    width: 400px;
-    font-weight: bold;
-    font-size: larger;
-  }
-  button {
-    background-color: rgb(94, 94, 240);
-    color: white;
+    display: flex;
+    border: 1px solid rgba(126, 126, 126, 0.65);
+    width: fit-content;
     padding: 1rem;
     border-radius: 1rem;
-    cursor: pointer;
-  }
+    background-color: white;
+    margin: 2rem auto;
+    >* {
+        border: none;
+        background-color: none !important;
+        outline: none;
+    }
+    input {
+        padding: 1rem;
+        width: 400px;
+        font-weight: bold;
+        font-size: larger;
+    }
+    button {
+        background-color: rgb(94, 94, 240);
+        color: white;
+        padding: 1rem;
+        border-radius: 1rem;
+        cursor: pointer;
+    }
 }
 
 .title {
-  text-align: center;
-  position: relative;
-  width: fit-content;
-  margin: 1rem auto;
-  &::after {
-    content: "";
-    position: absolute;
-    background-color: darkgray;
-    width: 80%;
-    height: 2px;
-    bottom: -12%;
-    left: 10%;
-  }
+    text-align: center;
+    position: relative;
+    width: fit-content;
+    margin: 1rem auto;
+    &::after {
+        content: "";
+        position: absolute;
+        background-color: darkgray;
+        width: 80%;
+        height: 2px;
+        bottom: -12%;
+        left: 10%;
+    }
 }
 
 table {
-  background-color: white;
-  border: 1px solid rgb(100, 99, 99);
-  padding: 0.4rem;
-  width: 80%;
-  margin: 0 auto;
-  text-align: center;
-  button {
     background-color: white;
-    border: blue 1px solid;
-    padding: 0.4rem 1rem;
-    border-radius: 0.3rem;
-    transition: 0.2s ease-in-out all;
-    cursor: pointer;
-    &:hover {
-      color: white;
-      background-color: rgb(73, 73, 211);
+    border: 1px solid rgb(100, 99, 99);
+    padding: 0.4rem;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    button {
+        background-color: white;
+        border: blue 1px solid;
+        padding: 0.4rem 1rem;
+        border-radius: 0.3rem;
+        transition: 0.2s ease-in-out all;
+        cursor: pointer;
+        &:hover {
+            color: white;
+            background-color: rgb(73, 73, 211);
+        }
     }
-  }
-  th {
-    color: blue;
-    border-bottom: rgb(83, 83, 136) 1px solid;
-    padding: 1rem;
-  }
-  .shortcol {
+    th {
+        color: blue;
+        border-bottom: rgb(83, 83, 136) 1px solid;
+        padding: 1rem;
+    }
+    .shortcol {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        gap: 1rem;
+        a {
+            text-decoration: none;
+            font-family: sans-serif;
+            font-weight: bolder;
+            border-bottom: 1px solid black;
+            padding: 0.1rem;
+        }
+        .clicks {
+            border: blue 1px solid;
+            width: fit-content;
+            padding: 1rem;
+            background-color: rgb(0, 0, 0);
+            color: white;
+            border-radius: 0.4rem;
+            span {
+                background-color: blue;
+                padding: 0.4rem;
+                color: white;
+                border-radius: 0.4rem;
+            }
+        }
+    }
+}
+
+.pricing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem;
+    .col {
+        padding: 1rem;
+        min-width: 300px;
+        max-width: 350px;
+        min-height: 590px;
+        line-height: 2rem;
+        border: 1px solid rgb(200, 200, 200);
+        p {
+            width: 100%;
+            color: rgba(0, 0, 0, 0.609);
+            span {
+                float: right;
+                color: black;
+            }
+        }
+        &:hover {
+            transition: 0.4s ease-in-out all;
+            border-color: black;
+            box-shadow: black 0px 0px 10px;
+        }
+        .card-footer {
+            text-align: center;
+            font-weight: bolder;
+            font-size: 1.5rem;
+            p {
+                color: rgb(1, 163, 77);
+            }
+            button {
+                background-color: rgb(19, 202, 105);
+                color: white;
+                border: none;
+                border-radius: 1rem;
+                padding: 0.7rem 1rem;
+                cursor: pointer;
+            }
+        }
+        &:nth-child(2) {
+            .card-footer {
+                p {
+                    color: #0e6df6;
+                }
+                button {
+                    background-color: #0e6df6;
+                }
+            }
+        }
+        &:nth-child(3) {
+            .card-footer {
+                p {
+                    color: tomato;
+                }
+                button {
+                    background-color: tomato;
+                }
+            }
+        }
+    }
+}
+
+h1.notlogin {
+    text-align: center;
+    margin: 2rem;
+}
+
+.flex {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
     gap: 1rem;
-    a {
-      text-decoration: none;
-      font-family: sans-serif;
-      font-weight: bolder;
-      border-bottom: 1px solid black;
-      padding: 0.1rem;
-    }
-    .clicks {
-      border: blue 1px solid;
-      width: fit-content;
-      padding: 1rem;
-      background-color: rgb(0, 0, 0);
-      color: white;
-      border-radius: 0.4rem;
-      span {
-        background-color: blue;
-        padding: 0.4rem;
-        color: white;
-        border-radius: 0.4rem;
-      }
-    }
-  }
 }
 
-.pricing {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-  padding: 2rem;
-  .col {
-    padding: 1rem;
-    min-width: 300px;
-    max-width: 350px;
-    min-height: 590px;
-    line-height: 2rem;
-    border: 1px solid rgb(200, 200, 200);
-    p {
-      width: 100%;
-      color: rgba(0, 0, 0, 0.609);
-      span {
-        float: right;
-        color: black;
-      }
-    }
-    &:hover {
-      transition: 0.4s ease-in-out all;
-      border-color: black;
-      box-shadow: black 0px 0px 10px;
-    }
-    .card-footer {
-      text-align: center;
-      font-weight: bolder;
-      font-size: 1.5rem;
-      p {
-        color: rgb(1, 163, 77);
-      }
-      button {
-        background-color: rgb(19, 202, 105);
-        color: white;
-        border: none;
-        border-radius: 1rem;
-        padding: 0.7rem 1rem;
-        cursor: pointer;
-      }
-    }
-    &:nth-child(2) {
-      .card-footer {
-        p {
-          color: #0e6df6;
-        }
-        button {
-          background-color: #0e6df6;
-        }
-      }
-    }
-    &:nth-child(3) {
-      .card-footer {
-        p {
-          color: tomato;
-        }
-        button {
-          background-color: tomato;
-        }
-      }
-    }
-  }
-}
-
-h1.notlogin {
-  text-align: center;
-  margin: 2rem;
-}
-
-.flex {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  gap: 1rem;
-}
 .intro {
-  background-color: #1737cf;
-  color: white;
-  padding: 3rem 1rem 0 1rem;
-  line-height: 3rem;
-  .flex {
-    gap: 10%;
-  }
-
-  .col {
-    max-width: 700px;
-    .title {
-      opacity: 0.8;
-      color: rgb(233, 247, 255);
+    background-color: #1737cf;
+    color: white;
+    padding: 3rem 1rem 0 1rem;
+    line-height: 3rem;
+    .flex {
+        gap: 10%;
     }
-    h1 {
-      font-weight: bold;
-      margin-bottom: 2rem;
+    .col {
+        max-width: 700px;
+        .title {
+            opacity: 0.8;
+            color: rgb(233, 247, 255);
+        }
+        h1 {
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+        p {
+            color: rgb(231, 231, 231);
+        }
+        .btns {
+            text-align: center;
+            display: flex;
+            justify-content: space-evenly;
+            border-radius: 1rem;
+            padding: 1rem;
+            .btn {
+                text-decoration: none;
+                padding: 0 2rem;
+                border-radius: 1rem;
+                transition: .5s ease-in-out all;
+                border: 1px solid lightgreen;
+                &:nth-child(1) {
+                    background-color: rgb(24, 243, 24);
+                    color: #1737cf;
+                }
+                &:nth-child(2) {
+                    color: lightgreen;
+                }
+                &:hover {
+                    &:nth-child(1) {
+                        background-color: #1737cf;
+                        color: rgb(24, 243, 24);
+                    }
+                    &:nth-child(2) {
+                        background-color: rgb(24, 243, 24);
+                        color: #1737cf;
+                    }
+                }
+            }
+        }
+    }
+    .copy {
+        text-align: center;
+        margin-top: 3rem;
+    }
+}
+
+.services {
+    text-align: center;
+    margin: 3rem 0;
+    .big {
+        padding-bottom: 1.2rem;
+        margin-bottom: 1.2rem;
+    }
+    >p {
+        margin: 3rem 055;
     }
     p {
-      color: rgb(231, 231, 231);
+        color: rgb(88, 86, 86);
+        font-weight: 800;
+        padding: 1rem 0;
     }
-    .btns {
-      text-align: center;
-     
-      display: flex;
-      justify-content: space-evenly;
-      border-radius: 1rem;
-      padding: 1rem;
-      .btn {
-        text-decoration: none;
-        padding: 0 2rem;
-        border-radius: 1rem;
-        transition:.5s ease-in-out all ; 
-        border: 1px solid lightgreen;
-        &:nth-child(1) {
-          background-color: rgb(24, 243, 24);
-          color: #1737cf;
-        }
-        &:nth-child(2) {
-         
-          color: lightgreen;
-        }
-        &:hover{
-            &:nth-child(1) {
-              
-                background-color: #1737cf;
-                color:rgb(24, 243, 24);
-             
+    .cards {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        .card {
+            width: 200px;
+            min-height: 310px;
+            border: #0e6df6 solid 2px;
+            padding: 1rem;
+            transition: all ease-in-out .4s;
+            >h3 {
+                color: #203cc7;
+                font-size: 1.3rem;
             }
-              &:nth-child(2) {
-           
-                background-color: rgb(24, 243, 24);
-                color: #1737cf;
-             
-              }  
+            .btn {
+                transition: all ease-in-out .3s;
+                padding: .3rem .5rem;
+                &:hover {
+                    transition: all ease-in-out .3s;
+                    border: #0e6df6 2px solid;
+                }
+            }
+            &:hover {
+                box-shadow: #0e6df6 0 0 5px 5px;
+            }
+            p {
+                font-size: .8rem;
+                color: #0b203da1;
+            }
         }
-      }
     }
-  }
-  .copy {
-    text-align: center;
-    margin-top: 3rem;
-  }
 }
 
-.services{
-text-align: center;
-margin: 3rem 0;
-.big{
-  padding-bottom: 1.2rem;
-  margin-bottom: 1.2rem;
-}
->p{
-  margin: 3rem 055;
-}
-p{
-  color: rgb(88, 86, 86);
-  font-weight: 800;
-  padding: 1rem 0;
-}
-.cards{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  .card{
-    width: 200px;
-    min-height: 310px;
-    border: #0e6df6 solid 2px;
+.footer-container {
     padding: 1rem;
-    transition: all ease-in-out .4s;
-    >h3{
-      color: #203cc7;
-      font-size: 1.3rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    line-height: 2.2rem;
+    .col {
+        max-width: 200px;
+        p {
+            color: rgb(128, 125, 125);
+        }
     }
-    .btn{
-      transition: all ease-in-out .3s;
-      padding: .3rem .5rem;
-      &:hover{
-      transition: all ease-in-out .3s;
-        
-        border: #0e6df6 2px solid ;
-      }
-    }
-    &:hover{
-      box-shadow: #0e6df6 0 0 5px 5px;
-    }
-
-p{
-  font-size: .8rem;
-  color: #0b203da1;
-}
-  }
-}
 }
 
 @media (max-width: 700px) {
-  .header {
-    align-items: center;
-    .logo,
-    h1 {
-      font-size: 1rem !important;
-      padding: 1rem 0;
+    .header {
+        align-items: center;
+        .logo,
+        h1 {
+            font-size: 1rem !important;
+            padding: 1rem 0;
+        }
     }
-  }
-  .cut {
-    width: 100%;
-  }
-  .flex {
-    flex-direction: column;
-  }
+    .cut {
+        width: 100%;
+    }
+    .flex {
+        flex-direction: column;
+    }
 }
