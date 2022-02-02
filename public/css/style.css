@@ -455,6 +455,27 @@ h1.notlogin {
   font-weight: bolder;
 }
 
+.messages {
+  text-align: center;
+}
+
+.messages .alert {
+  color: white;
+  font-size: 2rem;
+  position: relative;
+  margin-left: 30%;
+  text-align: center;
+}
+
+.messages .alert-success {
+  color: yellowgreen;
+  font-weight: bold;
+}
+
+.messages .alert-error {
+  color: #cd3732;
+}
+
 @media (max-width: 700px) {
   .header {
     -webkit-box-align: center;
