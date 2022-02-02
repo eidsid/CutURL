@@ -1,22 +1,29 @@
+<%- include('./components/Header.ejs')%>
 
-    <div class="Formcontainer">
-        <form action="/users/login" method="POST" class="flex">
-            <h2>Login</h2>
-            
-            <%- include('./components/messages.ejs') %>
 
-            
-            <div class="form-control">
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email">
-            </div>
-            <div class="form-control">
-                <label for="password">password</label>
-                <input type="password" name="password" id="password">
-            </div>
-            <button>Login</button>
-        </form>
-        <a href="/users/register">Register</a>
-    </div>
+<div class="logincontainer">
+    
+<div class="col"><img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt=""></div>
+<div class="Formcontainer">
+    <form action="/users/login" method="POST" class="flex">
+        <h2>Login</h2>
+        
+        <%- include('./components/messages.ejs') %>
 
+        
+        <div class="form-control">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="Enter your email">
+        </div>
+        <div class="form-control">
+            <label for="password">password</label>
+            <input type="password" name="password" id="password" placeholder="Enter Password">
+        </div>
+        <button>Login</button>
+    </form>
+    <a href="/users/register">Register</a>
+</div>
+
+</div>
+<%- include('./components/Footer.ejs')%>
     
