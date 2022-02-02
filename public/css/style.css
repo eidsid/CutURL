@@ -501,6 +501,11 @@ h1.notlogin {
   .cut {
     width: 100%;
   }
+  .services .info {
+    font-size: .85rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
   .flex,
   .split {
     -webkit-box-orient: vertical;
