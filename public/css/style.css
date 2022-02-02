@@ -429,9 +429,9 @@ h1.notlogin {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -440,11 +440,21 @@ h1.notlogin {
   line-height: 2.2rem;
 }
 
-.footer-container .col {
+.footer-container .split {
+  width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2rem;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.footer-container .split .col {
   max-width: 200px;
 }
 
-.footer-container .col p {
+.footer-container .split .col p {
   color: #807d7d;
 }
 
@@ -453,6 +463,7 @@ h1.notlogin {
   background-color: white;
   padding: 2rem;
   font-weight: bolder;
+  color: #08086b;
 }
 
 .messages {
@@ -490,7 +501,8 @@ h1.notlogin {
   .cut {
     width: 100%;
   }
-  .flex {
+  .flex,
+  .split {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;

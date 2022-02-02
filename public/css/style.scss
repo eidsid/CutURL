@@ -333,15 +333,21 @@ h1.notlogin {
     padding: 1rem;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     gap: 2rem;
     width: 100%;
     line-height: 2.2rem;
-    .col {
-        max-width: 200px;
-        p {
-            color: rgb(128, 125, 125);
+    .split {
+        width: 40%;
+        display: flex;
+        gap: 2rem;
+        justify-content: space-around;
+        .col {
+            max-width: 200px;
+            p {
+                color: rgb(128, 125, 125);
+            }
         }
     }
 }
@@ -351,6 +357,7 @@ h1.notlogin {
     background-color: white;
     padding: 2rem;
     font-weight: bolder;
+    color: rgb(8, 8, 107);
 }
 
 .messages {
@@ -383,7 +390,8 @@ h1.notlogin {
     .cut {
         width: 100%;
     }
-    .flex {
+    .flex,
+    .split {
         flex-direction: column;
     }
 }
