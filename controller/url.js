@@ -1,19 +1,17 @@
 const DBurls = require("../models/url");
 const getALL = async(req, res) => {
-
-
     if (req.user) {
         try {
             // console.log(req.user.id)
             const urls = await DBurls.find({});
             if (urls) {
-                res.render("index", {
+                res.render("dashbord", {
                     urls: urls,
-                    host: process.env.HOST || "https://cuturll.herokuapp.com/",
+                    host: "https://cuturll.herokuapp.com/",
                     user: req.user
                 });
             } else {
-                res.render("index", {
+                res.render("dashbord", {
                     urls: [],
 
                 });
@@ -23,7 +21,7 @@ const getALL = async(req, res) => {
         }
     } else {
         res.render("index", {
-            urls: [],
+        
         });
     }
 };

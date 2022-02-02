@@ -1,0 +1,62 @@
+<%- include('./components/Header.ejs') %>
+
+<%- include('./components/messages.ejs') %>
+
+<form action="/" method="post" class="cut">
+    <input type="text" name="fullURL" placeholder="add your url">
+    <button type="submit">CutURL</button>
+</form>       
+        <%if(urls.length>0){%>
+            <h1 class="title"> here your all urls</h1>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>the orginal URl</th>
+                        <th>the Short URl</th>
+                        <th>Actions</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <% urls.forEach(url => {%>
+
+
+                        <tr>
+                            <td>
+                                <%= url.fullURL %>
+                            </td>
+                            <td class="shortcol">
+                                <a href="<%=host + url.shortURL  %> " target="_blank">
+                                    <%= url.shortURL %>
+                                </a>
+                                <p class="clicks">cliks:
+                                    <span> <%=url.clicks %></span>
+                                </p>
+                            </td>
+                            <td>
+                                <form action="/<%=url.id%>?_method=DELETE" method="POST">
+                                    <button class="btn" type="submit">Delete</button>
+                                </form>
+                            </td>
+
+                        </tr>
+
+                        <% });%>
+
+                </tbody>
+
+
+            </table>
+            <%}%>
+
+                <%if(urls.length<=0){%>
+                   
+                       <h1 class="notlogin">You Have To Log in to Manage Your urls</h1>
+                   
+                    <%}%>
+
+
+ <%- include('./components/Footer.ejs') %>
