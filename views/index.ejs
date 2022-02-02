@@ -2,12 +2,14 @@
 
 <%- include('./components/messages.ejs') %>
 <%- include('./components/homepage/intro.ejs') %>
+<form action="/" method="post" class="cut">
+    <input type="text" name="fullURL" placeholder="add your url">
+    <button type="submit">CutURL</button>
+</form>
 
-        <form action="/" method="post" class="cut">
-            <input type="text" name="fullURL" placeholder="add your url">
-            <button type="submit">CutURL</button>
-        </form>
+<%- include('./components/homepage/services.ejs') %>
 
+       
         <%if(urls.length>0){%>
             <h1 class="title"> here your all URlS</h1>
 

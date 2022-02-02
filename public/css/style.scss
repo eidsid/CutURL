@@ -12,6 +12,9 @@ html,body{
   margin: 0;
   box-sizing: border-box;
 }
+a{
+ text-decoration: none;
+}
 
 .header {
   width: 100%;
@@ -277,6 +280,58 @@ h1.notlogin {
     text-align: center;
     margin-top: 3rem;
   }
+}
+
+.services{
+text-align: center;
+margin: 3rem 0;
+.big{
+  padding-bottom: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+>p{
+  margin: 3rem 055;
+}
+p{
+  color: rgb(88, 86, 86);
+  font-weight: 800;
+  padding: 1rem 0;
+}
+.cards{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  .card{
+    width: 200px;
+    min-height: 310px;
+    border: #0e6df6 solid 2px;
+    padding: 1rem;
+    transition: all ease-in-out .4s;
+    >h3{
+      color: #203cc7;
+      font-size: 1.3rem;
+    }
+    .btn{
+      transition: all ease-in-out .3s;
+      padding: .3rem .5rem;
+      &:hover{
+      transition: all ease-in-out .3s;
+        
+        border: #0e6df6 2px solid ;
+      }
+    }
+    &:hover{
+      box-shadow: #0e6df6 0 0 5px 5px;
+    }
+
+p{
+  font-size: .8rem;
+  color: #0b203da1;
+}
+  }
+}
 }
 
 @media (max-width: 700px) {

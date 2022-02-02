@@ -15,6 +15,10 @@ html, body {
           box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 .header {
   width: 100%;
   background-color: black;
@@ -343,6 +347,77 @@ h1.notlogin {
 .intro .copy {
   text-align: center;
   margin-top: 3rem;
+}
+
+.services {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.services .big {
+  padding-bottom: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.services > p {
+  margin: 3rem 055;
+}
+
+.services p {
+  color: #585656;
+  font-weight: 800;
+  padding: 1rem 0;
+}
+
+.services .cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.services .cards .card {
+  width: 200px;
+  min-height: 310px;
+  border: #0e6df6 solid 2px;
+  padding: 1rem;
+  -webkit-transition: all ease-in-out .4s;
+  transition: all ease-in-out .4s;
+}
+
+.services .cards .card > h3 {
+  color: #203cc7;
+  font-size: 1.3rem;
+}
+
+.services .cards .card .btn {
+  -webkit-transition: all ease-in-out .3s;
+  transition: all ease-in-out .3s;
+  padding: .3rem .5rem;
+}
+
+.services .cards .card .btn:hover {
+  -webkit-transition: all ease-in-out .3s;
+  transition: all ease-in-out .3s;
+  border: #0e6df6 2px solid;
+}
+
+.services .cards .card:hover {
+  -webkit-box-shadow: #0e6df6 0 0 5px 5px;
+          box-shadow: #0e6df6 0 0 5px 5px;
+}
+
+.services .cards .card p {
+  font-size: .8rem;
+  color: #0b203da1;
 }
 
 @media (max-width: 700px) {
