@@ -360,8 +360,9 @@ h1.notlogin {
   margin-bottom: 1.2rem;
 }
 
-.services > p {
-  margin: 3rem 055;
+.services .info {
+  max-width: 500px;
+  margin: 3rem auto;
 }
 
 .services p {
