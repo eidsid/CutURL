@@ -298,7 +298,8 @@ h1.notlogin {
 
 .intro .col h1 {
   font-weight: bold;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+
 }
 
 .intro .col p {
@@ -504,7 +505,7 @@ h1.notlogin {
   color: #cd3732;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   .header {
     -webkit-box-align: center;
         -ms-flex-align: center;
@@ -531,4 +532,6 @@ h1.notlogin {
             flex-direction: column;
   }
 }
+
+
 /*# sourceMappingURL=style.css.map */
