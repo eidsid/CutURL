@@ -458,6 +458,23 @@ h1.notlogin {
   color: #807d7d;
 }
 
+.footer-container .split .col .social {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-container .split .col .social > * {
+  -webkit-transition: all ease-in-out 0.4s;
+  transition: all ease-in-out 0.4s;
+}
+
+.footer-container .split .col .social > *:hover {
+  color: #0097bd;
+  border-bottom: blue 1px solid;
+}
+
 .copy {
   text-align: center;
   background-color: white;

@@ -348,6 +348,17 @@ h1.notlogin {
             p {
                 color: rgb(128, 125, 125);
             }
+            .social {
+                display: flex;
+                gap: 1rem;
+                >* {
+                    transition: all ease-in-out 0.4s;
+                    &:hover {
+                        color: rgb(0, 151, 189);
+                        border-bottom: blue 1px solid;
+                    }
+                }
+            }
         }
     }
 }
