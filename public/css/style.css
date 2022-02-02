@@ -448,6 +448,13 @@ h1.notlogin {
   color: #807d7d;
 }
 
+.copy {
+  text-align: center;
+  background-color: white;
+  padding: 2rem;
+  font-weight: bolder;
+}
+
 @media (max-width: 700px) {
   .header {
     -webkit-box-align: center;

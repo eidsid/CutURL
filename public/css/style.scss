@@ -346,6 +346,13 @@ h1.notlogin {
     }
 }
 
+.copy {
+    text-align: center;
+    background-color: white;
+    padding: 2rem;
+    font-weight: bolder;
+}
+
 @media (max-width: 700px) {
     .header {
         align-items: center;
