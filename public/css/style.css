@@ -505,25 +505,38 @@ h1.notlogin {
   color: #cd3732;
 }
 
-.logincontainer, .registercontainer {
+.logincontainer,
+.registercontainer {
+  min-height: 60vh;
   padding: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
-.logincontainer .Formcontainer, .registercontainer .Formcontainer {
-  padding: 1rem;
-  width: 100%;
+.logincontainer .flex,
+.registercontainer .flex {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-.logincontainer .Formcontainer .form-control, .registercontainer .Formcontainer .form-control {
+.logincontainer .Formcontainer,
+.registercontainer .Formcontainer {
+  padding: 1rem;
+  min-width: 500px;
+  max-width: 800px;
+}
+
+.logincontainer .Formcontainer .form-control,
+.registercontainer .Formcontainer .form-control {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -537,22 +550,26 @@ h1.notlogin {
   margin: 2rem 0;
 }
 
-.logincontainer .Formcontainer .form-control label, .registercontainer .Formcontainer .form-control label {
+.logincontainer .Formcontainer .form-control label,
+.registercontainer .Formcontainer .form-control label {
   font-weight: bold;
 }
 
-.logincontainer .Formcontainer .form-control input, .registercontainer .Formcontainer .form-control input {
+.logincontainer .Formcontainer .form-control input,
+.registercontainer .Formcontainer .form-control input {
   border: none;
   outline: none;
   border-bottom: darkgray solid 2px;
   padding: 1rem;
 }
 
-.logincontainer .Formcontainer .form-control input:focus, .registercontainer .Formcontainer .form-control input:focus {
+.logincontainer .Formcontainer .form-control input:focus,
+.registercontainer .Formcontainer .form-control input:focus {
   border-color: black;
 }
 
-.logincontainer .Formcontainer button, .registercontainer .Formcontainer button {
+.logincontainer .Formcontainer button,
+.registercontainer .Formcontainer button {
   border: none;
   padding: .5rem 1rem;
   border: #0e6df6 solid 2px;
@@ -560,18 +577,26 @@ h1.notlogin {
   margin: 1rem .5rem;
 }
 
-.logincontainer .Formcontainer a, .registercontainer .Formcontainer a {
+.logincontainer .Formcontainer a,
+.registercontainer .Formcontainer a {
   border-bottom: #0e6df6 solid 2px;
   padding-bottom: .4rem;
   color: #0e6df6;
 }
 
 @media (max-width: 768px) {
-  .logincontainer {
+  .logincontainer,
+  .registercontainer {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+  }
+  .logincontainer .Formcontainer,
+  .registercontainer .Formcontainer {
+    padding: 1rem;
+    min-width: 100%;
+    max-width: 500px;
   }
   .header {
     -webkit-box-align: center;
