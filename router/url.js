@@ -12,6 +12,6 @@ const {
 
 router.route("/").get(getALL).post(ensurAuthanticated, addONE);
 router.route("/:id").delete(deleteONE);
-router.route("/:shortURL").get(ensurAuthanticated, getOne);
+router.route("/:shortURL").get(getOne);
 
 module.exports = router;

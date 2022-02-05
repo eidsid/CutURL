@@ -1,11 +1,25 @@
 const mongoose = require("mongoose");
+const Str = require('@supercharge/strings')
 
 const url = mongoose.Schema({
-    postsid: {
+    fullURL: {
         type: String,
+        required: true,
+        minLength: 10
     },
-    urls: {},
-
+    shortURL: {
+        type: String,
+        default: ''
+    },
+    clicks: {
+        type: Number,
+        default: 0
+    }
 });
 
-module.exports = mongoose.model("URL", url);
+url.pre('save', async function() {
+    if (this.shortURL === '') {
+        this.shortURL = await Str.random(7)
+    }
+})
+module.exports = mongoose.model("URLS", url);

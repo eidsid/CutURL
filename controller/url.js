@@ -1,15 +1,14 @@
 const DBurls = require("../models/url");
-const Str = require('@supercharge/strings')
-
+const User = require('../models/users')
 const getALL = async(req, res) => {
-
     let fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
     if (req.user) {
+        const id = req.user.id;
         try {
-            const urls = await DBurls.findOne({
-                id: req.user.id
-            });
 
+            const user = await User.findById(id)
+
+            let urls = await user.populate('urls')
             if (urls) {
                 res.render("dashbord", {
                     urls: urls.urls,
@@ -22,102 +21,77 @@ const getALL = async(req, res) => {
                 });
             }
         } catch (error) {
-            res.status(500).send("index", error.message);
+            res.send(error.message);
         }
     } else {
         res.render("index", {});
     }
 };
+
 const addONE = async(req, res) => {
     const id = req.user.id;
-    if (id) {
-        const randomPostId = await Str.random(20)
-        const text = await Str.random(7);
-
-        const url = {
-            id: randomPostId,
-            fullURL: req.body.fullURL,
-            shortURL: text,
-            clicks: 0,
-        };
+    const fullURL = req.body.fullURL
+    if (id && fullURL) {
         try {
-            const urlscollection = await DBurls.findOne({
-                postsid: id
-            });
-
-            if (urlscollection) {
-                const updatedUrls = urlscollection.urls.push(url)
-
-                await DBurls.findOneAndUpdate({
-                    postsid: id
-                }, {
-                    ...urlscollection,
-                    urls: updatedUrls
-                });
-            } else {
-                const urlscollection = {
-                    postsid: id,
-                    urls: [url],
-                };
-                await DBurls.create(urlscollection);
-            }
-            res.redirect("/");
-
-        } catch (error) {
-            res.status(500).send(error.message);
-        }
-    }
-};
-const deleteONE = async(req, res) => {
-    const postId = req.params.id;
-    const id = req.user.id;
-    try {
-        const urlscollection = await DBurls.findOne({
-            postsid: id
-        });
-
-        if (urlscollection) {
-            urlscollection.urls = urlscollection.urls.filter((val) => {
-                return val.id != postId
+            const createdUrl = await DBurls.create({
+                fullURL
             })
-
-            await DBurls.findOneAndUpdate({
-                postsid: id
-            }, {
-                ...urlscollection
-            });
-        } else {
-            console.log("not found")
+            const user = await User.findById(id)
+            user.urls.push(createdUrl._id)
+            user.save()
+            req.flash('success_msg', 'Created success')
+            res.redirect('/')
+        } catch (error) {
+            req.flash('error', error.message)
+            res.redirect('/')
         }
-        res.redirect("/");
-    } catch (error) {
-        res.status(500).send(error.message);
     }
 };
+
+const deleteONE = async(req, res) => {
+    const id = req.user.id;
+    console.log(id);
+    const urlID = req.params.id
+    if (id && urlID) {
+        try {
+            await DBurls.findByIdAndDelete(urlID)
+            const user = await User.findById(id)
+            user.urls.filter((url) => {
+                return url._id != urlID
+            })
+            user.save()
+            req.flash('success_msg', 'delete success')
+            res.redirect('/')
+        } catch (error) {
+            req.flash('error', error.message)
+            res.redirect('/')
+        }
+    }
+};
+
 const getOne = async(req, res) => {
     const shortURL = req.params.shortURL;
-    let userid = req.user.id;
-    console, log(userid)
-    if (userid) {
+    if (shortURL != "favicon.ico") {
+        console.log("git one", shortURL);
         try {
-            const urlscollection = await DBurls.findOne({
-                postsid: userid,
+            const urls = await DBurls.findOne({
+                shortURL
             });
-            // console.log(urlscollection);
-            const updateclick = urlscollection.urls.map((url) => {
-                return url.shortURL === shortURL ? {
-                    ...url,
-                    shortURL: url.shortURL + 1
-                } : url
-            })
-
-            // console.log(updateclick)
-
-            res.redirect(url.fullURL);
+            console.log(urls)
+                // update url clicks
+                // urls.urls.map((url) => {
+                //     return url.shortURL === shortURL ? {
+                //         ...url,
+                //         shortURL: url.shortURL + 1
+                //     } : url
+                // })
+                // urls.save();
+            res.redirect(urls.fullURL);
         } catch (error) {
             res.send("there are no url with this shortURL");
         }
     }
+
 
 
 };
