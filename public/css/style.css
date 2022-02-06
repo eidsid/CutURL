@@ -528,10 +528,9 @@ h1.notlogin {
 }
 
 .messages .alert {
+  margin: 0.4rem;
   color: white;
   font-size: 2rem;
-  position: relative;
-  margin-left: 30%;
   text-align: center;
 }
 
@@ -542,6 +541,22 @@ h1.notlogin {
 
 .messages .alert-error {
   color: #cd3732;
+}
+
+.messages .alert button {
+  color: #fa0310;
+  border: 1px #fa0310 solid;
+  padding: 0.7rem;
+  margin: 0.1rem;
+  -webkit-transition: all ease-in-out 0.4s;
+  transition: all ease-in-out 0.4s;
+  float: right;
+}
+
+.messages .alert button:hover {
+  cursor: pointer;
+  background-color: red;
+  color: #eff1f1;
 }
 
 .logincontainer,

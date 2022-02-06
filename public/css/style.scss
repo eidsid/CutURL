@@ -406,10 +406,9 @@ h1.notlogin {
 .messages {
     text-align: center;
     .alert {
+        margin: 0.4rem;
         color: white;
         font-size: 2rem;
-        position: relative;
-        margin-left: 30%;
         text-align: center;
         &-success {
             color: yellowgreen;
@@ -417,6 +416,19 @@ h1.notlogin {
         }
         &-error {
             color: rgb(205, 55, 50);
+        }
+        button {
+            color: #fa0310;
+            border: 1px #fa0310 solid;
+            padding: 0.7rem;
+            margin: 0.1rem;
+            transition: all ease-in-out 0.4s;
+            float: right;
+            &:hover {
+                cursor: pointer;
+                background-color: red;
+                color: #eff1f1;
+            }
         }
     }
 }
