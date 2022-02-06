@@ -1,9 +1,9 @@
 function reload() {
     setTimeout(function() {
         window.location.reload(true)
-    }, 50000)
+    }, 200)
 }
-reload()
+
 document.querySelectorAll('#close').forEach(el => {
     el.addEventListener('click', (e) => {
         e.target.parentElement.remove();
