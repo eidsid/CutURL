@@ -71,24 +71,25 @@ const deleteONE = async(req, res) => {
 
 const getOne = async(req, res) => {
     const shortURL = req.params.shortURL;
+    console.log(`/${shortURL}/`)
     if (shortURL != "favicon.ico") {
-        console.log("git one", shortURL);
         try {
-            const urls = await DBurls.findOne({
+
+            // update url clicks
+            const url = await DBurls.findOne({
                 shortURL
-            });
-            console.log(urls)
-                // update url clicks
-                // urls.urls.map((url) => {
-                //     return url.shortURL === shortURL ? {
-                //         ...url,
-                //         shortURL: url.shortURL + 1
-                //     } : url
-                // })
-                // urls.save();
-            res.redirect(urls.fullURL);
+            })
+            await DBurls.findOneAndUpdate({
+                shortURL: shortURL
+            }, {
+                clicks: url.clicks + 1
+            })
+
+            res.redirect(url.fullURL);
+
         } catch (error) {
-            res.send("there are no url with this shortURL");
+            req.flash("error", error.message)
+            res.redirect('/')
         }
     }
 
