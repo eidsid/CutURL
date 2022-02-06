@@ -81,60 +81,91 @@ a {
         background-color: darkgray;
         width: 80%;
         height: 2px;
-        bottom: -12%;
+        bottom: -20%;
         left: 10%;
     }
 }
 
-table {
-    background-color: white;
-    border: 1px solid rgb(100, 99, 99);
-    padding: 0.4rem;
+.dashbord-info {
     width: 80%;
-    margin: 0 auto;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #ffffff;
+    padding: 2rem;
+    margin: 2rem auto;
     text-align: center;
-    button {
-        background-color: white;
-        border: blue 1px solid;
-        padding: 0.4rem 1rem;
-        border-radius: 0.3rem;
-        transition: 0.2s ease-in-out all;
-        cursor: pointer;
-        &:hover {
-            color: white;
-            background-color: rgb(73, 73, 211);
-        }
+    p {
+        color: rgba(0, 0, 0, 0.582);
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-weight: 700;
+        margin-bottom: 1rem;
     }
-    th {
-        color: blue;
-        border-bottom: rgb(83, 83, 136) 1px solid;
+    >* {
+        padding: 2rem;
+        background-color: #4accffb7;
+    }
+}
+
+.cards-info {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    .card {
+        border: 1px solid rgba(0, 0, 0, 0.513);
+        border-radius: 1rem;
         padding: 1rem;
-    }
-    .shortcol {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: row;
-        gap: 1rem;
-        a {
-            text-decoration: none;
-            font-family: sans-serif;
-            font-weight: bolder;
-            border-bottom: 1px solid black;
-            padding: 0.1rem;
+        background-color: #ffffff;
+        width: 100%;
+        >* {
+            margin-top: 2rem;
         }
-        .clicks {
-            border: blue 1px solid;
-            width: fit-content;
-            padding: 1rem;
-            background-color: rgb(0, 0, 0);
-            color: white;
-            border-radius: 0.4rem;
-            span {
-                background-color: blue;
-                padding: 0.4rem;
-                color: white;
-                border-radius: 0.4rem;
+        .card-head,
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+        }
+        .card-head {
+            .date {
+                transition: 0.3s ease-in-out all;
+                border: 1px solid black;
+                opacity: 0.8;
+                padding: 0.6rem;
+                border-radius: 1rem;
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+        .card-body {
+            opacity: 0.7;
+            text-align: center;
+        }
+        .card-footer {
+            .clicks {
+                transition: 0.3s ease-in-out all;
+                border: 1px solid #1737cf;
+                padding: 0.6rem;
+                border-radius: 1rem;
+                color: #1737cf;
+            }
+            button {
+                padding: 0.5rem 1rem;
+                border-radius: 1rem;
+                color: #ffffff;
+                border: 1px solid #fa0310;
+                background-color: #fa0310;
+                font-weight: 700;
+                transition: all ease-in-out 0.4s;
+                &:hover {
+                    cursor: pointer;
+                    color: #fa0310;
+                    background-color: transparent;
+                }
             }
         }
     }
@@ -397,6 +428,16 @@ h1.notlogin {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    .col-info {
+        p {
+            text-align: center;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        img {
+            width: 100%;
+        }
+    }
     .flex {
         flex-direction: column;
     }

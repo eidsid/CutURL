@@ -99,81 +99,120 @@ a {
   background-color: darkgray;
   width: 80%;
   height: 2px;
-  bottom: -12%;
+  bottom: -20%;
   left: 10%;
 }
 
-table {
-  background-color: white;
-  border: 1px solid #646363;
-  padding: 0.4rem;
+.dashbord-info {
   width: 80%;
-  margin: 0 auto;
-  text-align: center;
-}
-
-table button {
-  background-color: white;
-  border: blue 1px solid;
-  padding: 0.4rem 1rem;
-  border-radius: 0.3rem;
-  -webkit-transition: 0.2s ease-in-out all;
-  transition: 0.2s ease-in-out all;
-  cursor: pointer;
-}
-
-table button:hover {
-  color: white;
-  background-color: #4949d3;
-}
-
-table th {
-  color: blue;
-  border-bottom: #535388 1px solid;
-  padding: 1rem;
-}
-
-table .shortcol {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  background-color: #ffffff;
+  padding: 2rem;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.dashbord-info p {
+  color: rgba(0, 0, 0, 0.582);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.dashbord-info > * {
+  padding: 2rem;
+  background-color: #4accffb7;
+}
+
+.cards-info {
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   gap: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-table .shortcol a {
-  text-decoration: none;
-  font-family: sans-serif;
-  font-weight: bolder;
-  border-bottom: 1px solid black;
-  padding: 0.1rem;
-}
-
-table .shortcol .clicks {
-  border: blue 1px solid;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+.cards-info .card {
+  border: 1px solid rgba(0, 0, 0, 0.513);
+  border-radius: 1rem;
   padding: 1rem;
-  background-color: black;
-  color: white;
-  border-radius: 0.4rem;
+  background-color: #ffffff;
+  width: 100%;
 }
 
-table .shortcol .clicks span {
-  background-color: blue;
-  padding: 0.4rem;
-  color: white;
-  border-radius: 0.4rem;
+.cards-info .card > * {
+  margin-top: 2rem;
+}
+
+.cards-info .card .card-head,
+.cards-info .card .card-footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.cards-info .card .card-head .date {
+  -webkit-transition: 0.3s ease-in-out all;
+  transition: 0.3s ease-in-out all;
+  border: 1px solid black;
+  opacity: 0.8;
+  padding: 0.6rem;
+  border-radius: 1rem;
+}
+
+.cards-info .card .card-head .date:hover {
+  opacity: 1;
+}
+
+.cards-info .card .card-body {
+  opacity: 0.7;
+  text-align: center;
+}
+
+.cards-info .card .card-footer .clicks {
+  -webkit-transition: 0.3s ease-in-out all;
+  transition: 0.3s ease-in-out all;
+  border: 1px solid #1737cf;
+  padding: 0.6rem;
+  border-radius: 1rem;
+  color: #1737cf;
+}
+
+.cards-info .card .card-footer button {
+  padding: 0.5rem 1rem;
+  border-radius: 1rem;
+  color: #ffffff;
+  border: 1px solid #fa0310;
+  background-color: #fa0310;
+  font-weight: 700;
+  -webkit-transition: all ease-in-out 0.4s;
+  transition: all ease-in-out 0.4s;
+}
+
+.cards-info .card .card-footer button:hover {
+  cursor: pointer;
+  color: #fa0310;
+  background-color: transparent;
 }
 
 .pricing {
@@ -518,6 +557,18 @@ h1.notlogin {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.logincontainer .col-info p,
+.registercontainer .col-info p {
+  text-align: center;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.logincontainer .col-info img,
+.registercontainer .col-info img {
+  width: 100%;
 }
 
 .logincontainer .flex,

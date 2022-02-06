@@ -1,62 +1,68 @@
 <%- include('./components/Header.ejs') %>
 
-<%- include('./components/messages.ejs') %>
+    <%- include('./components/messages.ejs') %>
+        <h1 class="title">Dashboard</h1>
 
-<form action="/" method="post" class="cut">
-    <input type="text" name="fullURL" placeholder="add your url">
-    <button type="submit">CutURL</button>
-</form>       
-        <%if(urls.length>0){%>
-            <h1 class="title"> here your all urls</h1>
+        <div class="dashbord-info">
+            <%if(urls){ %>
 
-            <table>
+                <div class="totalurls">
+                    <p>TOTAL URLS</p>
+                    <span><%=urls.length %></span>
 
-                <thead>
-                    <tr>
-                        <th>the orginal URl</th>
-                        <th>the Short URl</th>
-                        <th>Actions</th>
-
-                    </tr>
-                </thead>
-                <tbody>
-
-                    <% urls.forEach((url) => {%>
+                </div>
+                <div class="totalClicks">
+                    <p>TOTAL CLICKS</p>
+                    <span><%=totalClick %></span>
+                </div>
 
 
-                        <tr>
-                            <td>
-                                <%= url.fullURL %>
-                            </td>
-                            <td class="shortcol">
-                                <a href="<%=host + url.shortURL  %> " target="_blank">
-                                    <%=url.shortURL %>
-                                </a>
-                                <p class="clicks">cliks:
-                                    <span> <%=url.clicks %></span>
-                                </p>
-                            </td>
-                            <td>
-                                <form action="/<%=url.id%>?_method=DELETE" method="POST">
-                                    <button class="btn" type="submit">Delete</button>
-                                </form>
-                            </td>
+                <%}%>
 
-                        </tr>
+        </div>
+        <form action="/" method="post" class="cut">
+            <input type="text" name="fullURL" placeholder="add your url">
+            <button type="submit">CutURL</button>
+        </form>
 
-                        <% });%>
+        <div class="cards-info">
+            <%if(urls.length>0){%>
+                <% urls.forEach((url) => {%>
+                    <div class="card">
+                        <div class="card-head">
+                            <a href="<%=host + url.shortURL%>" onclick="reload()" target="_blank">
+                                <%=host+url.shortURL %>
+                            </a>
+                            <div class="date">
+                                2022-01-22
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="full-url">
+                                <%=url.fullURL.length>33?url.fullURL.substr(0,45)+"......":url.fullURL%>
+                            </div>
 
-                </tbody>
+                        </div>
+                        <div class="card-footer">
+                            <div class="clicks">
+                                <span>  <%=url.clicks%>  </span> clicks
+                            </div>
+                            <form action="/<%=url.id%>?_method=DELETE" method="POST">
+                                <button class="btn" type="submit">Delete</button>
+                            </form>
 
+                        </div>
 
-            </table>
+                    </div>
+                    <% });%>
+                        <%}%>
+        </div>
+
+        <%if(urls.length=0){%>
+
+            <h1 class="notlogin">Have no URL </h1>
+
             <%}%>
 
-                <%if(urls.length<=0){%>
-                   
-                       <h1 class="notlogin">You Have To Log in to Manage Your urls</h1>
-                   
-                    <%}%>
 
-
- <%- include('./components/Footer.ejs') %>
+                <%- include('./components/Footer.ejs') %>

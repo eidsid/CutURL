@@ -3,29 +3,29 @@
         <% errors.forEach(function(error) {%>
         <div class="alert alert-error">
            
-       <%=error.msg%>
+       <%=error.msg%> <button id="close">X</button>
             
          </div>
          <%})%>
              <%}%>
-       <%if(locals.success_msg){%>
+       <%if(locals.success_msg!=""){%>
            <div class="alert alert-success">
               
-         <%=success_msg %>
+         <%=success_msg %> <button id="close">X</button>
               
            </div>
            <%}%>
-               <%if(locals.message){%>
+               <%if(locals.message&&locals.message!=""){%>
          <div class="alert alert-success">
             
-       <%=message %>
+       <%=message %> <button id="close">X</button>
            
          </div>
          <%}%>
-             <%if(locals.error){%>
+             <%if(locals.error!=""){%>
        <div class="alert alert-error">
         
-               <%=error %>
+               <%=error %> <button id="close">X</button>
            
        </div>
        <%}%>

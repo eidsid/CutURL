@@ -9,8 +9,13 @@ const getALL = async(req, res) => {
             const user = await User.findById(id)
 
             let urls = await user.populate('urls')
+            let totalClick = 0;
+            urls.urls.forEach(url => {
+                totalClick += url.clicks
+            })
             if (urls) {
                 res.render("dashbord", {
+                    totalClick: totalClick,
                     urls: urls.urls,
                     host: fullUrl,
                     user: req.user,
