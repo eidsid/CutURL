@@ -14,6 +14,10 @@ const url = mongoose.Schema({
     clicks: {
         type: Number,
         default: 0
+    },
+    CreatedAt: {
+        type: Date,
+        default: Date.now()
     }
 });
 
