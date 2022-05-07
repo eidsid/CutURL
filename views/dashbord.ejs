@@ -7,13 +7,38 @@
             <%if(urls){ %>
 
                 <div class="totalurls">
-                    <p>TOTAL URLS</p>
-                    <span><%=urls.length %></span>
+                    <div>
+                        <p>TOTAL URLS</p>&nbsp;
+                        <span><%=urls.length %></span>
+                    </div>
+                    <i class="fa fa-link" aria-hidden="true"></i>
 
                 </div>
                 <div class="totalClicks">
-                    <p>TOTAL CLICKS</p>
-                    <span><%=totalClick %></span>
+                    <div>
+                        <p>TOTAL CLICKS</p> &nbsp;
+                        <span><%=totalClick %></span>
+                    </div>
+                    <i class="fa fa-mouse-pointer" aria-hidden="true"></i>
+
+                </div>
+                <div class="totalMonthClicks">
+
+                    <%
+                    let thisMonthUrls=0;
+                     let currentmonth=new Date().getMonth()
+                    urls.forEach((url) => {
+                let urlCreatedMonth= new Date(url.CreatedAt).getMonth()
+               if(currentmonth==urlCreatedMonth) thisMonthUrls++
+
+
+                    })%>
+                        <div>
+                            <p>this month</p> &nbsp;
+                            <span><%=thisMonthUrls%></span>
+                        </div>
+                        <i class="fa fa-calendar-check" aria-hidden="true"></i>
+
                 </div>
 
 
@@ -22,7 +47,7 @@
         </div>
         <form action="/" method="post" class="cut">
             <input type="text" name="fullURL" placeholder="add your url">
-            <button type="submit">CutURL</button>
+            <button type="submit"> Add </button>
         </form>
 
         <div class="cards-info">
@@ -60,7 +85,7 @@
 
         <%if(urls.length=0){%>
 
-            <h1 class="notlogin">Have no URL </h1>
+            <h1 class="notlogin"> no URL </h1>
 
             <%}%>
 
