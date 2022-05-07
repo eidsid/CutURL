@@ -108,6 +108,8 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
@@ -117,16 +119,45 @@ a {
   text-align: center;
 }
 
-.dashbord-info p {
-  color: rgba(0, 0, 0, 0.582);
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-weight: 700;
-  margin-bottom: 1rem;
+.dashbord-info > div {
+  width: 300px;
+  height: 100px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1rem;
+  margin: 1rem;
 }
 
-.dashbord-info > * {
-  padding: 2rem;
-  background-color: #4accffb7;
+.dashbord-info > div > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.dashbord-info > div:nth-child(1) {
+  background-color: #f8f9fa;
+}
+
+.dashbord-info > div:nth-child(2) {
+  background-color: #e8f9f6;
+}
+
+.dashbord-info > div:nth-child(3) {
+  background-color: #fcedeb;
+}
+
+.dashbord-info p {
+  color: rgba(0, 0, 0, 0.582);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 700;
+  margin-bottom: 1rem;
 }
 
 .cards-info {
@@ -361,8 +392,8 @@ h1.notlogin {
   text-decoration: none;
   padding: 0 2rem;
   border-radius: 1rem;
-  -webkit-transition: .5s ease-in-out all;
-  transition: .5s ease-in-out all;
+  -webkit-transition: 0.5s ease-in-out all;
+  transition: 0.5s ease-in-out all;
   border: 1px solid lightgreen;
 }
 
@@ -431,8 +462,8 @@ h1.notlogin {
   min-height: 310px;
   border: #0e6df6 solid 2px;
   padding: 1rem;
-  -webkit-transition: all ease-in-out .4s;
-  transition: all ease-in-out .4s;
+  -webkit-transition: all ease-in-out 0.4s;
+  transition: all ease-in-out 0.4s;
 }
 
 .services .cards .card > h3 {
@@ -441,14 +472,14 @@ h1.notlogin {
 }
 
 .services .cards .card .btn {
-  -webkit-transition: all ease-in-out .3s;
-  transition: all ease-in-out .3s;
-  padding: .3rem .5rem;
+  -webkit-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
+  padding: 0.3rem 0.5rem;
 }
 
 .services .cards .card .btn:hover {
-  -webkit-transition: all ease-in-out .3s;
-  transition: all ease-in-out .3s;
+  -webkit-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
   border: #0e6df6 2px solid;
 }
 
@@ -458,7 +489,7 @@ h1.notlogin {
 }
 
 .services .cards .card p {
-  font-size: .8rem;
+  font-size: 0.8rem;
   color: #0b203da1;
 }
 
@@ -637,16 +668,16 @@ h1.notlogin {
 .logincontainer .Formcontainer button,
 .registercontainer .Formcontainer button {
   border: none;
-  padding: .5rem 1rem;
+  padding: 0.5rem 1rem;
   border: #0e6df6 solid 2px;
   cursor: pointer;
-  margin: 1rem .5rem;
+  margin: 1rem 0.5rem;
 }
 
 .logincontainer .Formcontainer a,
 .registercontainer .Formcontainer a {
   border-bottom: #0e6df6 solid 2px;
-  padding-bottom: .4rem;
+  padding-bottom: 0.4rem;
   color: #0e6df6;
 }
 
@@ -678,7 +709,7 @@ h1.notlogin {
     width: 100%;
   }
   .services .info {
-    font-size: .85rem;
+    font-size: 0.85rem;
     padding-left: 1rem;
     padding-right: 1rem;
   }
