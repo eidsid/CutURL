@@ -49,7 +49,7 @@ const addONE = async (req, res) => {
 
 const deleteONE = async (req, res) => {
   const id = req.user.id;
-  console.log(id);
+
   const urlID = req.params.id;
   if (id && urlID) {
     try {
