@@ -12,7 +12,7 @@ const getALL = async (req, res) => {
       urls.urls.forEach((url) => {
         totalClick += url.clicks;
       });
-      console.log("rclciks", redclick);
+
       res.render("dashbord", {
         totalClick: totalClick,
         urls: urls ? urls.urls : [],
