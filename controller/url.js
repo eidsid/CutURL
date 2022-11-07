@@ -70,27 +70,18 @@ const deleteONE = async (req, res) => {
 
 const getOne = async (req, res) => {
   const shortURL = req.params.shortURL;
-  console.log(`/${shortURL}/`);
-  if (shortURL != "favicon.ico") {
-    try {
-      // update url clicks
-      const url = await DBurls.findOne({
-        shortURL,
-      });
-      await DBurls.findOneAndUpdate(
-        {
-          shortURL: shortURL,
-        },
-        {
-          clicks: url.clicks + 1,
-        }
-      );
-
-      res.redirect(url.fullURL);
-    } catch (error) {
-      req.flash("error", error.message);
-      res.redirect("/");
-    }
+  //   console.log(`/${shortURL}/`);
+  try {
+    // update url clicks
+    const url = await DBurls.findOne({
+      shortURL,
+    });
+    url.clicks += 1;
+    url.save();
+    res.redirect(url.fullURL);
+  } catch (error) {
+    req.flash("error", error.message);
+    res.redirect("/");
   }
 };
 
