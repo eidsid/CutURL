@@ -155,9 +155,15 @@ a {
 
 .dashbord-info p {
   color: rgba(0, 0, 0, 0.582);
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-weight: 700;
   margin-bottom: 1rem;
+}
+
+.linkesState {
+  max-width: 900px;
+  max-height: 900px;
+  margin: 0 auto;
 }
 
 .cards-info {
