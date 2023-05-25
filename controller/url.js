@@ -1,75 +1,102 @@
 const DBurls = require("../models/url");
-const getALL = async(req, res) => {
-    if (req.user) {
-        try {
-            // console.log(req.user.id)
-            const urls = await DBurls.find({});
-            if (urls) {
-                res.render("dashbord", {
-                    urls: urls,
-                    host: "https://cuturll.herokuapp.com/",
-                    user: req.user
-                });
-            } else {
-                res.render("dashbord", {
-                    urls: [],
+const User = require("../models/users");
+const getALL = async (req, res) => {
+  let fullUrl = req.protocol + "://" + req.get("host") + req.originalUrl;
+  if (req.user) {
+    const id = req.user.id;
+    try {
+      const user = await User.findById(id);
 
-                });
-            }
-        } catch (error) {
-            res.status(500).send("index", error.message);
-        }
-    } else {
-        res.render("index", {
-        
-        });
-    }
-};
-const addONE = async(req, res) => {
-    const url = {
-        fullURL: req.body.fullURL,
-    };
-    try {
-        await DBurls.create(url);
-        res.redirect("/");
-    } catch (error) {
-        res.status(500).send(error.message);
-    }
-};
-const deleteONE = async(req, res) => {
-    try {
-        const id = req.params.id;
-        const url = await DBurls.findOneAndDelete({
-            _id: id,
-        });
-        if (!url) {
-            res.status(404).send("url not exst");
-        }
-        res.redirect("/");
-    } catch (error) {
-        res.status(500).send(error.message);
-    }
-};
-const getOne = async(req, res) => {
-    const shortURL = req.params.shortURL;
+      let urls = await user.populate("urls");
+      let totalClick = 0;
+      urls.urls.forEach((url) => {
+        totalClick += url.clicks;
+      });
 
-    try {
-        const url = await DBurls.findOne({
-            shortURL: shortURL,
-        });
-        const clicks = url.clicks + 1;
-        await DBurls.findByIdAndUpdate(url.id, {
-            clicks: clicks,
-        });
-        res.redirect(url.fullURL);
+      res.render("dashbord", {
+        totalClick: totalClick,
+        urls: urls ? urls.urls : [],
+        host: fullUrl,
+        user: req.user,
+      });
     } catch (error) {
-        res.send("there are no url with this shortURL");
+      res.send(error.message);
     }
+  } else {
+    res.render("index", {});
+  }
+};
+
+const addONE = async (req, res) => {
+  const id = req.user.id;
+  const fullURL = req.body.fullURL;
+  if (id && fullURL) {
+    try {
+      const createdUrl = await DBurls.create({
+        fullURL,
+      });
+      const user = await User.findById(id);
+      user.urls.push(createdUrl._id);
+      user.save();
+      req.flash("success_msg", "Created success");
+      res.redirect("/");
+    } catch (error) {
+      req.flash("error", error.message);
+      res.redirect("/");
+    }
+  }
+};
+
+const deleteONE = async (req, res) => {
+  const id = req.user.id;
+
+  const urlID = req.params.id;
+  if (id && urlID) {
+    try {
+      await DBurls.findByIdAndDelete(urlID);
+      const user = await User.findById(id);
+      user.urls.filter((url) => {
+        return url._id != urlID;
+      });
+      user.save();
+      req.flash("success_msg", "delete success");
+      res.redirect("/");
+    } catch (error) {
+      req.flash("error", error.message);
+      res.redirect("/");
+    }
+  }
+};
+
+const getOne = async (req, res) => {
+  const shortURL = req.params.shortURL;
+  console.log(`/${shortURL}/`);
+  if (shortURL != "favicon.ico") {
+    try {
+      // update url clicks
+      const url = await DBurls.findOne({
+        shortURL,
+      });
+      await DBurls.findOneAndUpdate(
+        {
+          shortURL: shortURL,
+        },
+        {
+          clicks: url.clicks + 1,
+        }
+      );
+
+      res.redirect(url.fullURL);
+    } catch (error) {
+      req.flash("error", error.message);
+      res.redirect("/");
+    }
+  }
 };
 
 module.exports = {
-    getALL,
-    addONE,
-    deleteONE,
-    getOne,
+  getALL,
+  addONE,
+  deleteONE,
+  getOne,
 };

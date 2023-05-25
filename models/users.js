@@ -13,5 +13,11 @@ const userSchema = mongoose.Schema({
         type: String,
         required: [true, 'password must be provided'],
     },
+    urls: {
+        type: Array(mongoose.SchemaTypes.ObjectId),
+        ref: "URLS",
+        default: []
+    }
+
 })
 module.exports = mongoose.model('Users', userSchema)

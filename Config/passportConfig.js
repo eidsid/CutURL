@@ -14,7 +14,7 @@ function passportConfig(passport) {
             // match user
             User.findOne({
                 email: email
-            }, (err, user) => {
+            }, async(err, user) => {
                 if (err) throw err;
                 if (!user) {
                     // console.log('no user founded ');
@@ -25,11 +25,13 @@ function passportConfig(passport) {
                     // console.log(' user founded and chacking password ', password, email);
 
                     // match password
-                    const isMatch = bcrypt.compare(password, user.password)
+                    const isMatch = await bcrypt.compare(password, user.password)
+                        // console.log(isMatch)
                     if (isMatch) {
                         // console.log('every thing ok')
                         return done(null, user)
                     } else {
+                        // console.log('some thing is not ok')
                         return done(null, false, {
                             message: "password is incorrect",
                         })

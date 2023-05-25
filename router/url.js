@@ -11,7 +11,7 @@ const {
 } = require('../Config/auth')
 
 router.route("/").get(getALL).post(ensurAuthanticated, addONE);
-router.route("/:id").delete(deleteONE);
+router.route("/:id").delete(ensurAuthanticated, deleteONE);
 router.route("/:shortURL").get(getOne);
 
 module.exports = router;
