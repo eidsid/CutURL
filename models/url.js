@@ -1,50 +1,29 @@
 const mongoose = require("mongoose");
+const Str = require('@supercharge/strings')
 
 const url = mongoose.Schema({
-  fullURL: {
-    type: String,
-    required: true,
-  },
-  shortURL: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  clicks: {
-    type: Number,
-    default: 0,
-  },
+    fullURL: {
+        type: String,
+        required: true,
+        minLength: 10
+    },
+    shortURL: {
+        type: String,
+        default: ''
+    },
+    clicks: {
+        type: Number,
+        default: 0
+    },
+    CreatedAt: {
+        type: Date,
+        default: Date.now()
+    }
 });
-url.pre("validate", function () {
-  const letters = [
-    "A",
-    "B",
-    "c",
-    "d",
-    "e",
-    "f",
-    "h",
-    "g",
-    "p",
-    "u",
-    "q",
-    "w",
-    "s",
-    "z",
-    "x",
-    "v",
-    "i",
-    "o",
-    "n",
-    "k",
-    "j",
-    "t",
-  ];
-  let text = "";
-  for (let i = 0; i < 7; i++) {
-    const randomNum = Math.floor(Math.random() * 22);
-    text += letters[randomNum];
-  }
-  this.shortURL = text;
-});
-module.exports = mongoose.model("URL", url);
+
+url.pre('save', async function() {
+    if (this.shortURL === '') {
+        this.shortURL = await Str.random(7)
+    }
+})
+module.exports = mongoose.model("URLS", url);
